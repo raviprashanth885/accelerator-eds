@@ -1,0 +1,157 @@
+{
+  ":type": "forms-components-examples/components/form/formcontainer",
+  "id": "guideContainer",
+  "name": "signup",
+  "items": {
+    "firstname": {
+      ":type": "forms-components-examples/components/form/textinput",
+      "name": "firstName",
+      "fieldType": "text-input",
+      "label": { "value": "First Name" },
+      "placeholder": "Enter first name",
+      "required": true,
+      "validationExpression": "",
+      "errorMessage": { "forms-components-examples/components/form/textinput/validation/required": "Please enter the first name" },
+      "properties": { "fd:layout": { "gridColumn": "col-6" } }
+    },
+    "lastname": {
+      ":type": "forms-components-examples/components/form/textinput",
+      "name": "lastName",
+      "fieldType": "text-input",
+      "label": { "value": "Last Name" },
+      "placeholder": "Enter last name",
+      "required": true,
+      "properties": { "fd:layout": { "gridColumn": "col-6" } }
+    },
+    "email": {
+      ":type": "forms-components-examples/components/form/emailinput",
+      "name": "email",
+      "fieldType": "email",
+      "label": { "value": "Email Address" },
+      "required": true
+    },
+    "favoriteteam": {
+      ":type": "forms-components-examples/components/form/dropdown",
+      "name": "favoriteteam",
+      "fieldType": "drop-down",
+      "label": { "value": "Favorite Team" },
+      "required": true,
+      "enum": ["Cardinals", "Falcons", "Ravens", "Bills", "Panthers", "Bears", "Bengals", "Browns", "Cowboys", "Broncos", "Lions", "Packers", "Texans", "Colts", "Jaguars", "Chiefs", "Raiders", "Chargers", "Rams", "Dolphins", "Vikings", "Patriots", "Saints", "Giants", "Jets", "Eagles", "Steelers", "49ers", "Seahawks", "Buccaneers", "Titans", "Commanders"],
+      "enumNames": ["Arizona Cardinals", "Atlanta Falcons", "Baltimore Ravens", "Buffalo Bills", "Carolina Panthers", "Chicago Bears", "Cincinnati Bengals", "Cleveland Browns", "Dallas Cowboys", "Denver Broncos", "Detroit Lions", "Green Bay Packers", "Houston Texans", "Indianapolis Colts", "Jacksonville Jaguars", "Kansas City Chiefs", "Las Vegas Raiders", "Los Angeles Chargers", "Los Angeles Rams", "Miami Dolphins", "Minnesota Vikings", "New England Patriots", "New Orleans Saints", "New York Giants", "New York Jets", "Philadelphia Eagles", "Pittsburgh Steelers", "San Francisco 49ers", "Seattle Seahawks", "Tampa Bay Buccaneers", "Tennessee Titans", "Washington Commanders"],
+      "properties": { "fd:customType": "team-highlight" }
+    },
+    "preferredlanguage": {
+      ":type": "forms-components-examples/components/form/dropdown",
+      "name": "preferredlanguage",
+      "fieldType": "drop-down",
+      "label": { "value": "Preferred Language (Optional)" },
+      "required": false,
+      "enum": ["en", "es", "fr", "de", "pt", "ja"],
+      "enumNames": ["English", "Spanish", "French", "German", "Portuguese", "Japanese"],
+      "description": "We use your preferred language to provide you with communications and content in your preferred language, where available."
+    },
+    "country": {
+      ":type": "forms-components-examples/components/form/dropdown",
+      "name": "country",
+      "fieldType": "drop-down",
+      "label": { "value": "Country of Residence" },
+      "required": true,
+      "default": "USA",
+      "enum": ["USA", "CAN", "IND", "GBR", "AUS", "MEX", "BRA", "DEU", "FRA", "JPN", "CHN", "ESP", "ITA", "NLD", "NZL", "IRL", "ZAF", "KOR", "SGP", "ARE"],
+      "enumNames": ["United States of America", "Canada", "India", "United Kingdom", "Australia", "Mexico", "Brazil", "Germany", "France", "Japan", "China", "Spain", "Italy", "Netherlands", "New Zealand", "Ireland", "South Africa", "South Korea", "Singapore", "United Arab Emirates"]
+    },
+    "dob": {
+      ":type": "forms-components-examples/components/form/datepicker",
+      "name": "dob",
+      "fieldType": "date-input",
+      "label": { "value": "Date of Birth (Optional)" },
+      "required": false,
+      "description": "We use your date of birth to provide you with more personalized offers and content.",
+      "rules": {
+        "tooltipVisible": "country <> 'USA'"
+      }
+    },
+    "postalcode": {
+      ":type": "forms-components-examples/components/form/textinput",
+      "name": "postalCode",
+      "fieldType": "text-input",
+      "label": { "value": "Postal Code (Optional)" },
+      "required": false,
+      "description": "We use your postal code to provide you with more personalized offers and content.",
+      "rules": {
+        "requiredExpression": "country == 'USA'",
+        "tooltipVisible": "country <> 'USA'"
+      }
+    },
+    "ageconfirm": {
+      ":type": "forms-components-examples/components/form/checkbox",
+      "name": "ageTermsCheckbox",
+      "fieldType": "checkbox",
+      "label": { "value": "I confirm that I am at least 18 years of age." },
+      "required": true,
+      "rules": { "visibleExpression": "country == 'CAN'" }
+    },
+    "marketingconsent": {
+      ":type": "forms-components-examples/components/form/checkbox",
+      "name": "marketingoptinconsent",
+      "fieldType": "checkbox",
+      "label": { "value": "Yes, I want to sign up to receive content, offers and more from the NFL." },
+      "required": true,
+      "rules": { "visibleExpression": "country == 'CAN'" }
+    },
+    "ageconfirm_intl": {
+      ":type": "forms-components-examples/components/form/checkbox",
+      "name": "ageTermsCheckbox",
+      "fieldType": "checkbox",
+      "label": { "value": "I confirm that I am at least 18 years old and accept the NFL <a href=https://www.nfl.com/legal/terms/ target=_blank>Terms and Conditions</a>.", "richText": true },
+      "required": true,
+      "rules": { "visibleExpression": "country <> 'USA' && country <> 'CAN'" }
+    },
+    "marketingconsent_intl": {
+      ":type": "forms-components-examples/components/form/checkbox",
+      "name": "marketingoptinconsent",
+      "fieldType": "checkbox",
+      "label": { "value": "Yes, I want to sign up to receive content, offers and more from the NFL. This may include personalized updates about our Clubs, as well as news, events, sweepstakes, merchandise, and special offers." },
+      "required": true,
+      "rules": { "visibleExpression": "country <> 'USA' && country <> 'CAN'" }
+    },
+    "agreement": {
+      ":type": "forms-components-examples/components/form/text",
+      "name": "agreement",
+      "fieldType": "plain-text",
+      "richText": true,
+      "value": "By clicking 'Sign Up', I agree to the NFL <a href=https://www.nfl.com/legal/privacy/ target=_blank rel=noopener noreferrer>Terms and Conditions</a> and understand that personal information will be used as described in the NFL's <a href=https://www.nfl.com/legal/privacy/ target=_blank rel=noopener noreferrer>Privacy Policy</a>.",
+      "rules": { "visibleExpression": "country == 'USA' || country == 'CAN'" }
+    },
+    "privacynotice": {
+      ":type": "forms-components-examples/components/form/text",
+      "name": "privacynotice",
+      "fieldType": "plain-text",
+      "richText": true,
+      "value": "Once registered, you will be able to access our preference center to control content, offers and more that you receive from the NFL, including member clubs.",
+      "rules": { "visibleExpression": "country == 'USA' || country == 'CAN'" }
+    },
+    "privacynotice_intl": {
+      ":type": "forms-components-examples/components/form/text",
+      "name": "privacynotice_intl",
+      "fieldType": "plain-text",
+      "richText": true,
+      "value": "Our Privacy Policy explains why the NFL collects your data and how it is processed. You can unsubscribe at any time.",
+      "rules": { "visibleExpression": "country <> 'USA' && country <> 'CAN'" }
+    },
+    "submit": {
+      ":type": "forms-components-examples/components/form/button",
+      "name": "submit",
+      "fieldType": "submit",
+      "label": { "value": "Sign Up" },
+      "properties": { "fd:redirectUrl": "/chiefs/thank-you" }
+    },
+    "disclaimer": {
+      ":type": "forms-components-examples/components/form/text",
+      "name": "disclaimer",
+      "fieldType": "plain-text",
+      "value": "This form is intended for fans who wish to sign up to receive content, offers, and more from the NFL. If you do not wish to do so, please do not submit this form.",
+      "rules": { "visibleExpression": "country <> 'USA'" }
+    }
+  }
+}
