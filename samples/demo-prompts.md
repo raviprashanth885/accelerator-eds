@@ -30,6 +30,36 @@ Bare form (no landing page) - the original working demo prompt:
 Create a fan signup form for the Chiefs at da.live /chiefs/fan-alerts. Fields: First Name and Last Name side by side (both required), Email (required), Favorite NFL Team (required dropdown, use the team-highlight custom type), a checkbox "Text me game-day alerts", and — only if that's checked — a required Phone Number field. Redirect to /chiefs/thank-you on submit.
 ```
 
+## Personalization / localization URLs
+
+All via port 8788 (localize-worker), not 3001/3002 directly - needs 3002 and
+Ollama running too.
+
+Segment + pre-fill personalization:
+```
+http://localhost:8788/chiefs/signup?segment=lapsed&name=Alex
+http://localhost:8788/chiefs/signup?segment=vip&name=Jordan&lastname=Rivera&email=jordan.rivera@example.com
+```
+
+Translated form (`?lang=es`, `?lang=fr`, or `?lang=hi`):
+```
+http://localhost:8788/chiefs/fan-alerts/form.json?lang=es
+```
+
+AI-written, personalized team highlight:
+```
+http://localhost:8788/api/team-highlight?team=KC&lang=es
+```
+
+## Where submissions land
+
+Chiefs/Seahawks form submissions POST to a Google Apps Script Web App
+(`setSubmitBaseUrl` in `scripts/scripts.js`), which writes to this Google
+Sheet:
+```
+https://docs.google.com/spreadsheets/d/1hJEtJDO0xybIUYH2_IPlV6P0BB4PspfTTDMCbAqLY8w/edit?gid=0#gid=0
+```
+
 ## Notes
 
 - Use an existing branded site (Chiefs or Seahawks) — both have a working
