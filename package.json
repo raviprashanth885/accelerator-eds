@@ -1,0 +1,17 @@
+{
+  "name": "af-eds-accelerator-server",
+  "version": "1.0.0",
+  "description": "EXL internal tool: upload an AF model.json, get back a da.live-ready CSV.",
+  "author": "EXL",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.32.1",
+    "@modelcontextprotocol/sdk": "^1.30.0",
+    "dotenv": "^17.4.2",
+    "express": "^4.19.2",
+    "multer": "^1.4.5-lts.1"
+  }
+}

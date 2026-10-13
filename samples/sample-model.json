@@ -1,0 +1,40 @@
+{
+  "items": {
+    "panel1": {
+      "fieldType": "panel",
+      "items": {
+        "fullName": {
+          "fieldType": "text-input",
+          "label": { "value": "Full Name" },
+          "required": true,
+          "placeholder": "Enter your name",
+          "errorMessage": { "en": "Name is required" }
+        },
+        "email": {
+          "fieldType": "email",
+          "label": { "value": "Email Address" },
+          "required": true,
+          "rules": {
+            "requiredExpression": "amount > 100 && country == 'US'"
+          }
+        },
+        "country": {
+          "fieldType": "drop-down",
+          "label": { "value": "Country" },
+          "enum": ["us", "ca", "uk"],
+          "enumNames": ["United States", "Canada", "United Kingdom"]
+        },
+        "preferences": {
+          "fieldType": "checkbox-group",
+          "label": { "value": "Preferences" },
+          "enum": ["news", "updates"],
+          "enumNames": ["News", "Updates"]
+        },
+        "weirdWidget": {
+          "fieldType": "signature-pad",
+          "label": { "value": "Signature" }
+        }
+      }
+    }
+  }
+}
